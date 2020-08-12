@@ -1,0 +1,31 @@
+permalink: /:year-:month-:day/:title/
+title: ZerUniverse blog
+email: zzy8200@gmail.com
+description: Some tech blogs
+hgimgcount: 3 # Number of the possible top images, images must be jpg and 1000 * 288. Put images in static/hgimg folder and rename them as 1.jpg, 2.jpg...
+url: https://gitblog.zzeyu.com
+
+paginate: 5
+paginate_path: "/page:num/"
+
+navigation:
+  - text: RSS
+    url: https://gitblog.zzeyu.com/feed.xml
+  - text: GitHub
+    url: https://github.com/zeruniverse
+  - text: 作者
+    url: https://zzeyu.com
+
+# Build settings
+markdown: kramdown
+excerpt_separator: "<!--more-->"
+highlighter: rouge
+
+gems:
+  - jekyll-paginate
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LICENSE

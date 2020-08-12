@@ -1,1 +1,1 @@
-# tech_blog
+Theme adapted from https://github.com/zeruniverse/semitransparent-jekyll-theme

@@ -1,0 +1,113 @@
+---
+layout: default
+title: Index
+---
+<div class="row">
+<div class="col-md-9 col-sm-12">
+{% for post in paginator.posts %}
+<div class="page-content">
+    <div class="post-heading">
+        <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+    </div>
+    <div class="post-meta">
+        <span>
+            Publication date:
+            <a href="{{ site.url }}{{ post.url }}">{{ post.date | date: '%B %d, %Y' }}</a>
+        </span>
+        <span><i class="fa fa-ellipsis-v"></i></span>
+        <span>
+            Categories:
+            {% for cat in post.categories %}
+            <a href="{{ site.url }}/categories.html#{{ cat }}-ref">{{ cat }}</a>
+            {% endfor %}
+        </span>
+    </div>
+	{% if post.hgimg %}
+		{% if post.fullhgimg %}
+			<div><a href="{{ site.url }}/postimg/{{ post.fullhgimg }}"><img class="hgimg" title="点击查看大图" src="{{ site.url }}/postimg/{{ post.hgimg }}" width="100%" /></a></div>
+		{% else %}
+			<div><img src="{{ site.url }}/postimg/{{ post.hgimg }}" class="hgimg" width="100%" /></div>
+		{% endif %}
+	{% endif %}
+    <div class="post-entry">
+	{% if post.content contains site.excerpt_separator %}
+		{{  post.excerpt | rstrip | append: '.@marklastp@.' | remove: '</p>.@marklastp@.' }}...<a href="{{ site.url }}{{ post.url }}">>>Read More</a></p>
+	{% else %}
+        {{ post.content }}
+	{% endif %}
+    </div>
+</div>
+{% endfor %}
+
+<div class="page-pagination">
+    <ul class="pagination">
+    {% assign page_begin = paginator.page | minus: 2 %}
+    {% assign page_end = paginator.page | plus: 2 %}
+    {% if page_begin < 1 %}
+            {% assign page_begin = 1 %}
+    {% endif %}
+    {% if page_end > paginator.total_pages %}
+            {% assign page_end = paginator.total_pages %}
+    {% endif %}
+        <li><a href="{{ site.url }}/">&lt;&lt;&lt;</a></li>
+    {% if 3 < paginator.page %}
+         <li class="hidden-xs"><a class="disabled">...</a></li>
+    {% endif %}
+    {% for count in (page_begin..page_end) %}
+    {% if 1 == count %}
+        {% if paginator.page == 1 %}
+        <li><a class="active disabled">1</a></li>
+        {% else %}
+        <li><a href="{{ site.url }}/">1</a></li>
+        {% endif %}
+    {% else %}
+    {% if count == paginator.page %}
+        <li><a class="active disabled">{{count}}</a></li>
+    {% else %}
+        <li><a href="{{ site.url }}/page{{count}}">{{count}}</a></li>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+    {% if page_end < paginator.total_pages %}
+        <li class="hidden-xs"><a class="disabled">...</a></li>
+    {% endif %}
+    {% if paginator.total_pages == 1 %}
+        <li><a href="{{ site.url }}/">>>></a></li>
+    {% else %}
+        <li><a href="{{ site.url }}/page{{paginator.total_pages}}">>>></a></li>
+    {% endif %}
+    </ul>
+</div>
+</div>
+<div class="col-md-3 col-sm-12">
+<div class="page-content" style="border-bottom:0;margin-left:15px;">
+    <div class="stext">
+        Links
+    </div>
+<ul class="sqlist">
+{% for nav in site.navigation %}
+	<li><a href="{{nav.url}}">{{nav.text}}</a></li>
+{% endfor %}
+</ul>
+<div class="stext">
+        Categories
+</div>
+<ul class="sqlist">
+{% for cat in site.categories %}
+    <li>
+        <a href="{{ site.url }}/categories.html#{{ cat[0] }}-ref" title="分类:{{ cat[0] }}" >{{ cat[0] }}</a>
+    </li>
+{% endfor %}
+</ul>
+
+<div class="stext">
+        Archives
+</div>
+<ul class="sqlist">
+{% for post in site.posts %}{% capture post_year2 %}{{ post.date | date: '%Y' }}{% endcapture %}{% if post_year1 != post_year2 %}{% assign post_year1 = post_year2 %}<li>
+        <a href="{{ site.url }}/archive.html#yid{{ post_year1 }}">{{ post_year1 }}</a>
+</li>{% endif %}{% endfor %}
+</ul>
+</div>
+</div>
+</div>
