@@ -13,7 +13,7 @@ navigation:
     url: https://gitblog.zzeyu.com/feed.xml
   - text: GitHub
     url: https://github.com/zeruniverse
-  - text: 作者
+  - text: Author
     url: https://zzeyu.com
 
 # Build settings
