@@ -10,7 +10,7 @@ The security configuration of a web server is very important especially when som
 
 I use *CentOS 7 (x64)* as my operating system. Steps I take includes changing ssh port, forbidden ping, Configure iptables, change user privillege, disallow any change of some important file and etc.
 
-1. Change the ssh port
+## Change the ssh port
 
 Though a strong password might be enough to protect the server, it would be better if potential attackers don’t know you have ssh installed. Thus, changing the ssh port would be a good idea.
 
@@ -22,7 +22,7 @@ vim /etc/ssh/sshd_config
 service sshd restart
 ```
 
-2. Disable system service you don’t need
+## Disable system service you don’t need
 
 There might be vulnerability in some system services, thus disabling services you don’t need can enhance the security of your server.
 
@@ -66,7 +66,7 @@ alias net-pf-10 off
 options ipv6 disable=1
 ```
 
-3. Disallow users you don’t need
+## Disallow users you don’t need
 
 Edit `/etc/passwd`, comment the user you don’t need (do not delete them in case you need them in future)
 
@@ -96,7 +96,7 @@ avahi-autoipd:x:170:170:Avahi IPv4LL Stack:/var/lib/avahi-autoipd:/sbin/nologin
 sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
 ```
 
-4. Disallow groups you don’t need
+## Disallow groups you don’t need
 
 Edit `/etc/group`, comment the group you don't need (do not delete them in case you need them in future)
 
@@ -109,7 +109,7 @@ Edit `/etc/group`, comment the group you don't need (do not delete them in case 
 #dip:x:40:
 ```
 
-5. Install `sudo` and only allow certain user to login via `ssh`
+## Install `sudo` and only allow certain user to login via `ssh`
 
 ```bash
 yum install sudo
@@ -138,7 +138,7 @@ vim /etc/sshallowusers
 #xxx
 ```
 
-6. Avoid IP spoofing
+## Avoid IP spoofing
 
 Edit `/etc/host.conf`, make it the same as following:
 ```
@@ -147,7 +147,7 @@ multi on
 nospoof on
 ```
 
-7. Disallow FTP user to login and limit the folder user can get access via FTP
+## Disallow FTP user to login and limit the folder user can get access via FTP
 
 Edit `/etc/host.conf`, make it the same as following:
 
@@ -162,7 +162,7 @@ vim /etc/vsftpd/vsftpd.conf
 /etc/init.d/vsftpd restart
 ```
 
-8. IP tables configuration
+## IP tables configuration
 
 ```bash
 iptables -F
@@ -196,7 +196,7 @@ iptables -P OUTPUT ACCEPT
 iptables -vnL
 ```
 
-9. Disallow adding new user and change to system file
+## Disallow adding new user and change to system file
 
 ```bash
 chattr +i /etc/passwd
