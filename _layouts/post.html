@@ -18,7 +18,7 @@ layout: default
     <div class="post-meta">
         <span>
             Publication date:
-            <a href="{{ site.url }}{{ page.url }}">{{ post.date | date: '%B %d, %Y' }}</a>
+            <a href="{{ site.url }}{{ page.url }}">{{ page.date | date: '%B %d, %Y' }}</a>
         </span>
 	{% capture difference %} {{ page.categories | size | minus:1 }} {% endcapture %}
         {% unless difference contains '-' %}
@@ -34,7 +34,7 @@ layout: default
         {% unless difference contains '-' %}
         <span class="hidden-sm"><i class="fa fa-ellipsis-v"></i></span>
         <span class="hidden-sm">
-            标签:
+            Tags:
             {% for tag in page.tags %}
             <a href="{{ site.url }}/tags.html#{{ tag }}-ref">{{ tag }}</a>
             {% endfor %}
