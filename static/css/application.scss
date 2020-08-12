@@ -12,6 +12,7 @@ pre {
   white-space: pre;
   white-space: pre-wrap;
   word-break: break-all;
+  overflow-wrap: anywhere;
   word-wrap: break-word;
   background-color: #eee;
   box-shadow: 4px 4px 4px #888;
@@ -29,11 +30,16 @@ h3 {
 }
 .page-container {
   max-width: 1000px;
-  margin: 0 auto;
-  background-color: #f7f7f7;
+  margin: 2em auto;
+}
+.hgimg{
+	vertical-align: middle;
+	margin-top: 15px;
+	border: 5px solid;
+	border-radius: 25px;
+	border-color: #fff;
 }
 .page-heading {
-  border-top: 2px solid #bbb;
   padding-bottom: 10px;
   position: relative;
   z-index: 9999;
@@ -41,6 +47,8 @@ h3 {
 .page-brand {
   margin: 0 7.5%;
   display: block;
+  padding-top:15px;
+  padding-bottom:15px;
 }
 .page-brand h1 {
   padding: 1.05em 0 0;
@@ -57,6 +65,9 @@ h3 {
   color: #7a7a7a;
   font-size: 18px;
   margin: 1em 0 1.25em;
+}
+.post-entry{
+	margin-top:15px;
 }
 .page-navbar {
   margin: 0 auto 6px;
@@ -89,25 +100,35 @@ h3 {
   background: #fff;
 }
 .page-article {
-  margin: 0 7.5%;
+  margin: 0 8%;
   width: auto;
+}
+.page-content-post {
+  margin: 0 0 1.5em;
+  padding-bottom: 1.5em;
+  position: relative;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+hr{
+	border-top: 1px solid #000
 }
 .page-header {
   padding-bottom: 10px;
   margin: 30px 0 20px;
-  border-bottom: 1px solid #bbb;
+  border-bottom:0;
 }
 .page-header h2 {
   font-weight: 500;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 .page-content {
-  border-bottom: 1px dashed #aaa;
+  border-bottom: 1px solid #666;
   margin: 0 0 1.5em;
   padding: 0 0 1.5em;
   position: relative;
 }
-.page-content .post-heading {
+.post-heading {
   color: #222;
   text-decoration: none;
   clear: both;
@@ -118,45 +139,42 @@ h3 {
   padding-top: 12px;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
-.page-content .post-heading a {
+.post-heading a {
   color: #222;
   text-decoration: none;
 }
-.page-content .post-meta {
+.post-meta {
   color: #666;
   clear: both;
   font-size: 13px;
   line-height: 18px;
-  border-bottom: 1px solid #d5d5d5;
-  padding: .5em;
 }
-.page-content .post-meta span {
+.post-meta span {
   margin-right: 4px;
   vertical-align: middle;
 }
-.page-content .post-meta a {
+.post-meta a {
   font-weight: 500;
 }
-.page-content .post-entry {
-  padding: 1.5em 0 0;
+.post-entry {
   font-size: 14px;
+  overflow: hidden;
 }
-.page-content .post-entry blockquote p {
+.post-entry blockquote p {
   font-size: 15px;
 }
-.page-content .post-footer {
+.post-footer {
   clear: both;
   font-size: 15px;
   line-height: 20px;
   margin-bottom: 35px;
 }
 .page-footer {
-  border-top: 1px solid #ddd;
   color: #555;
   font-weight: 500;
   font-size: 13px;
   line-height: 1.5em;
-  padding: 1.5em .5em;
+  padding: 2em .5em;
   text-align: center;
 }
 .page-footer a {
@@ -204,31 +222,26 @@ h3 {
   position: relative;
 }
 .read-more {
-  background: #d4dad8;
   display: inline-block;
   margin-top: 10px;
   padding: .4em .8em;
   text-decoration: none;
   float: right;
 }
-.read-more a {
-  color: #222;
-  text-decoration: none;
-}
-.read-more:hover,
-.read-more:focus {
-  background: #428bca;
-}
-.read-more:hover a,
-.read-more:focus a {
-  color: #fff;
-}
+
 .post-pager {
   margin-bottom: 5px;
-  border-bottom: 1px dashed #aaa;
 }
 .pager {
   list-style: none;
+}
+.stext{
+	color: #666;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    line-height: 2.6em;
+    text-transform: uppercase;
 }
 .pager li a {
   border: none;
@@ -261,8 +274,8 @@ h3 {
   background: transparent;
 }
 .page-pagination .pagination li a.active {
-  color: #1982d1;
-  text-decoration: underline;
+  color: #000;
+  font-weight: bold;
 }
 .page-pagination .pagination li a:hover,
 .page-pagination .pagination li a:focus {
@@ -288,8 +301,31 @@ h3 {
 .page-tags a:focus {
   color: #fff;
 }
-@media (max-width: 992px) {
+.sqlist{
+	list-style: square;
+	margin: 0;
+	font-size:15px;
+	font-weight: bold;
+    font-family: "Microsoft YaHei";
+    padding-left: 15px;
+	color:#666;
+}
+.pagination > li > a,
+.pagination > li > span {
+	background-color:transparent;
+}
+
+@media (max-width: 991px) {
   .page-container {
+    margin: 1em 1em;
+  }
+  body {
     margin: 0 auto;
+  }
+  .page-content-post {
+	position: relative;
+	border-bottom: 1px solid #666;
+	padding-left:0;
+	padding-right:0;
   }
 }
