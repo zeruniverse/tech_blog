@@ -1,8 +1,7 @@
 permalink: /:year-:month-:day/:title/
-title: ZerUniverse blog
+title: ZerUniverse
 email: zzy8200@gmail.com
-description: Some tech blogs
-hgimgcount: 3 # Number of the possible top images, images must be jpg and 1000 * 288. Put images in static/hgimg folder and rename them as 1.jpg, 2.jpg...
+description: On the way
 url: https://gitblog.zzeyu.com
 
 paginate: 5
