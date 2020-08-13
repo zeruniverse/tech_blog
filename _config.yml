@@ -2,14 +2,14 @@ permalink: /:year-:month-:day/:title/
 title: ZerUniverse
 email: zzy8200@gmail.com
 description: On the way
-url: https://gitblog.zzeyu.com
+url: https://blog.zzeyu.com
 
 paginate: 5
 paginate_path: "/page:num/"
 
 navigation:
   - text: RSS
-    url: https://gitblog.zzeyu.com/feed.xml
+    url: https://blog.zzeyu.com/feed.xml
   - text: GitHub
     url: https://github.com/zeruniverse
   - text: Author
