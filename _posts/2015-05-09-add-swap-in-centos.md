@@ -17,10 +17,10 @@ df -hl
 Next, we add a file for swap.
 
 ```bash
-dd if=/dev/zero of=/myswap bs=1024 count=1024k
+sudo fallocate -l 1G /myswap
 ```
 
-This command means we copy 1024k blocks from `/dev/zero` to `/myswap`. Size of a single block is 1024 bytes. By the way, `/dev/zero` is a virtual device from where you can copy unlimited `0`.
+This command means we make a file of 1G.
 
 Then we make that file as our swap file.
 
@@ -43,3 +43,18 @@ chmod 0600 /myswap
 ```
 
 Now, the memory should be extended by 1G. And I successfully re-compiled the software.
+
+Update Jul. 25, 2021:
+
+You can actually use an entire disk as swap, by following steps:
+
+```bash
+sudo mkswap /dev/xvdf
+sudo swapon /dev/xvdf
+```
+
+and you can automatically mount the device as swap on startup by adding below to `/etc/fstab`:
+
+```bash
+/dev/xvdf none swap sw 0 0
+```
