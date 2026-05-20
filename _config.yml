@@ -1,19 +1,19 @@
 permalink: /:year-:month-:day/:title/
 title: ZerUniverse
-email: zzy8200@gmail.com
+email: i@zeyu.me
 description: On the way
-url: https://blog.zzeyu.com
+url: https://blog.zeyu.me
 
 paginate: 5
 paginate_path: "/page:num/"
 
 navigation:
   - text: RSS
-    url: https://blog.zzeyu.com/feed.xml
+    url: https://blog.zeyu.me/feed.xml
   - text: GitHub
     url: https://github.com/zeruniverse
   - text: Author
-    url: https://zzeyu.com
+    url: https://zeyu.me
 
 # Build settings
 markdown: kramdown
